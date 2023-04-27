@@ -59,5 +59,9 @@ main{
 }
 .bgBomba{
     background-color: red;
-    
+
+}
+#TestoSconfitta{
+    text-align: center;
+    color: red;
 }
