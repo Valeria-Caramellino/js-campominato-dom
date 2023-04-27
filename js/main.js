@@ -3,7 +3,7 @@
 const contentitore = document.getElementById("container");
 //creo collegamento con il pulsante
 const buttonPlay = document.getElementById("play");
-//tiengo il punteggio
+//tengo il punteggio
 let punti =0;
 //dichiaro numero di celle totali riportando il value
 let numeroDiCelleTotali = document.getElementById("livelloDifficolta").value;
@@ -60,18 +60,20 @@ function GeneraCaselleNumerate (numeroDaGenerare){
                 if(Bomba){
                     //genero bgBomba x cambiarli colore
                     this.classList.toggle("bgBomba");
-                    console.log("i numeri sono uguali",i);
+                    //console.log("i numeri sono uguali",i);
                     //Genero testo di scritta in html 
                     document.getElementById("TestoSconfitta").innerText= `Hai perso sei caduto su una bomba! Numero di mosse giuste ${punti}`;
+
                 }else{//altrimenti vado avanti
                     //ogni casella che schiaccio diventa di questo colore
                     this.classList.toggle("bgNuovo");
                     //metto console.log per sicurezza
-                    console.log("i numeri sono diversi", i);
+                    //console.log("i numeri sono diversi", i);
                     //aumento i punti ad ogni click
                     punti += 1;
-                    console.log(punti);
+                    //console.log(punti);
                 }
+               
             });
         } 
         inizioGame=true;
