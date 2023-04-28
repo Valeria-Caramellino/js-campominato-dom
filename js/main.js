@@ -7,15 +7,7 @@ const buttonPlay = document.getElementById("play");
 let punti =0;
 //dichiaro numero di celle totali riportando il value
 let numeroDiCelleTotali = document.getElementById("livelloDifficolta").value;
-// genera l'array di bombe
-const bombArray = [];
- while (bombArray.length < 16) {
-     let bombNum = Math.floor(Math.random() * numeroDiCelleTotali) + 1;
-     if (bombArray.includes(bombNum) == false) {
-     bombArray.push(bombNum);
-     }
- }
- console.log(bombArray);
+
 
 //genero evento per il pulsante richiamando la funzione
 buttonPlay.addEventListener("click", function(){
@@ -33,6 +25,15 @@ function GeneraCaselleNumerate (numeroDaGenerare){
         let numeroDiCelleTotali = document.getElementById("livelloDifficolta").value;
         let numeroDiCellePerLato = Math.ceil( Math.sqrt(numeroDiCelleTotali) );
         let dimensione = `calc(100% / ${numeroDiCellePerLato})`;
+        // genera l'array di bombe
+        const bombArray = [];
+        while (bombArray.length < 16) {
+        let bombNum = Math.floor(Math.random() * numeroDiCelleTotali) + 1;
+        if (bombArray.includes(bombNum) == false) {
+        bombArray.push(bombNum);
+        }
+        }
+        console.log(bombArray);
 
         for (let i = 1; i <= numeroDaGenerare; i++) {
             
@@ -82,8 +83,6 @@ function GeneraCaselleNumerate (numeroDaGenerare){
     } 
 }
 
-
-
 //funzione di creazione elemento
 function createElement(tagHtml, classe, contenuto) {
     
@@ -94,4 +93,3 @@ function createElement(tagHtml, classe, contenuto) {
 
     return newBox;
 }
-
