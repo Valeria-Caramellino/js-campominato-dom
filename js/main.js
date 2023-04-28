@@ -28,10 +28,10 @@ function GeneraCaselleNumerate (numeroDaGenerare){
         // genera l'array di bombe
         const bombArray = [];
         while (bombArray.length < 16) {
-        let bombNum = Math.floor(Math.random() * numeroDiCelleTotali) + 1;
-        if (bombArray.includes(bombNum) == false) {
-        bombArray.push(bombNum);
-        }
+            let bombNum = numeroCasuale(1, numeroDiCelleTotali);
+            if (bombArray.includes(bombNum) == false) {
+            bombArray.push(bombNum);
+            }
         }
         console.log(bombArray);
 
@@ -84,3 +84,11 @@ function createElement(tagHtml, classe, contenuto) {
 
     return newBox;
 }
+
+//creo numeri a caso
+function numeroCasuale(min, max){
+    let numero;
+    numero= Math.floor(Math.random()*(max - min +1 ) + min);
+    //console.log ("il numero casuale è:", numero);
+    return numero;
+ }
