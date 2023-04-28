@@ -46,19 +46,10 @@ function GeneraCaselleNumerate (numeroDaGenerare){
 
             //al click del piccolo contenitore div precedentemente creato
             box.addEventListener("click", function() {    
-            //dichiaro la bomba falsa per poi farla diventare vera solo se le due variabili sono uguali
-               let Bomba= false;
-                for(let c=0; c<= bombArray.length; c++){
-                    //costante che mi dichiara bombArray precedentemente creato
-                    const bombs = bombArray[c];
-                    //uso la costante dichiarata per confrontarla con il contenuto del mio elemento
-                    if(bombs == i){
-                        //dichiaro bomba attiva
-                        Bomba=true;
-                    }
-                }
+                
+               let cellsCliccata = i;
                 //se bomba è attiva
-                if(Bomba){
+                if(bombArray.includes(cellsCliccata)){
                     //genero bgBomba x cambiarli colore
                     this.classList.toggle("bgBomba");
                     //console.log("i numeri sono uguali",i);
