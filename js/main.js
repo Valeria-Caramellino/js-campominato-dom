@@ -35,6 +35,8 @@ function GeneraCaselleNumerate (numeroDaGenerare){
         }
         console.log(bombArray);
 
+        //gesto il game over
+        let gameOVer= false;
         for (let i = 1; i <= numeroDaGenerare; i++) {
             
             //creo elemento div tramite funzione
@@ -46,25 +48,30 @@ function GeneraCaselleNumerate (numeroDaGenerare){
 
             //al click del piccolo contenitore div precedentemente creato
             box.addEventListener("click", function() {    
-                
-               let cellsCliccata = i;
-                //se bomba è attiva
-                if(bombArray.includes(cellsCliccata)){
-                    //genero bgBomba x cambiarli colore
-                    this.classList.toggle("bgBomba");
-                    //console.log("i numeri sono uguali",i);
-                    //Genero testo di scritta in html 
-                    document.getElementById("TestoSconfitta").innerText= `Hai perso sei caduto su una bomba! Numero di mosse giuste ${punti}`;
+                if(gameOVer== false){
+                    let cellsCliccata = i;
+                    //se bomba è attiva
+                    if(bombArray.includes(cellsCliccata)){
+                        //genero bgBomba x cambiarli colore
+                        this.classList.toggle("bgBomba");
+                        //console.log("i numeri sono uguali",i);
+                        //Genero testo di scritta in html 
+                        document.getElementById("TestoSconfitta").innerText= `Hai perso sei caduto su una bomba! Numero di mosse giuste ${punti}`;
+                        gameOVer= true;
 
-                }else{//altrimenti vado avanti
-                    //ogni casella che schiaccio diventa di questo colore
-                    this.classList.toggle("bgNuovo");
-                    //metto console.log per sicurezza
-                    //console.log("i numeri sono diversi", i);
-                    //aumento i punti ad ogni click
-                    punti += 1;
-                    //console.log(punti);
+                    }else{//altrimenti vado avanti
+                        //ogni casella che schiaccio diventa di questo colore
+                        this.classList.toggle("bgNuovo");
+                        //metto console.log per sicurezza
+                        //console.log("i numeri sono diversi", i);
+                        //aumento i punti ad ogni click
+                        punti += 1;
+                        //console.log(punti);
+                    }   
+                }else{
+                    console.error("fine paritita!");
                 }
+               
                
             });
         } 
@@ -85,10 +92,10 @@ function createElement(tagHtml, classe, contenuto) {
     return newBox;
 }
 
-//creo numeri a caso
+//funzione creo numeri a caso
 function numeroCasuale(min, max){
     let numero;
     numero= Math.floor(Math.random()*(max - min +1 ) + min);
     //console.log ("il numero casuale è:", numero);
     return numero;
- }
+}
